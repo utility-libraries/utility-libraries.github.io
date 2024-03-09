@@ -23,11 +23,36 @@ const utilityLibrariesSidebar: DefaultTheme.SidebarItem[] = [
 
 const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
     {
+        text: "API",
+        base: "/3rd-party/python/api/",
+        link: ".",
+        items: [
+            { text: "FastAPI", link: "fastapi" },
+        ],
+    },
+    {
         text: "General Purpose",
         base: "/3rd-party/python/general-purpose/",
         link: ".",
         items: [
             { text: "Better-Exception", link: "better-exceptions" },
+        ],
+    },
+    {
+        text: "GUI",
+        base: "/3rd-party/python/gui/",
+        link: ".",
+        items: [
+
+        ],
+    },
+    {
+        text: "HTTP",
+        base: "/3rd-party/python/http/",
+        link: ".",
+        items: [
+            { text: "AIOHTTP", link: "aiohttp" },
+            { text: "requests", link: "requests" },
         ],
     },
     {
@@ -47,11 +72,29 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
         ],
     },
     {
+        text: "Terminal",
+        base: "/3rd-party/python/terminal/",
+        link: ".",
+        items: [
+
+        ],
+    },
+    {
+        text: "Terminal GUI",
+        base: "/3rd-party/python/terminal-gui/",
+        link: ".",
+        items: [
+            { text: "PyTermGUI", link: "pytermgui" },
+            { text: "Textual", link: "textual" },
+        ],
+    },
+    {
         text: "Video",
         base: "/3rd-party/python/video/",
         link: ".",
         items: [
             { text: "MoviePy", link: "moviepy" },
+            { text: "ffmpeg-python", link: "ffmpeg-python" },
         ],
     },
     {
