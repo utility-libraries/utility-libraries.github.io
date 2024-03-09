@@ -93,8 +93,8 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
         base: "/3rd-party/python/video/",
         link: ".",
         items: [
-            { text: "MoviePy", link: "moviepy" },
             { text: "ffmpeg-python", link: "ffmpeg-python" },
+            { text: "MoviePy", link: "moviepy" },
         ],
     },
     {
