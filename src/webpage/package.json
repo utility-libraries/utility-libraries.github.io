@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.45"
+  },
+  "scripts": {
+    "dev": "vitepress dev --strictPort --port 3000",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  }
+}
