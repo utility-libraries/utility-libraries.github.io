@@ -5,7 +5,7 @@ const utilityLibrariesSidebar: DefaultTheme.SidebarItem[] = [
     {
         text: "Shell",
         base: "/utility-libraries/shell/",
-        link: "index",
+        link: ".",
         items: [
             { text: "utilities-sh", link: "utilities-sh" },
         ],
@@ -13,7 +13,7 @@ const utilityLibrariesSidebar: DefaultTheme.SidebarItem[] = [
     {
         text: "Python",
         base: "/utility-libraries/python/",
-        link: "index",
+        link: ".",
         items: [
             { text: "configlib-py", link: "configlib-py" },
         ],
@@ -21,41 +21,56 @@ const utilityLibrariesSidebar: DefaultTheme.SidebarItem[] = [
 ]
 
 
-const thirdPartySidebar: DefaultTheme.SidebarItem[] = [
+const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
+    {
+        text: "General Purpose",
+        base: "/3rd-party/python/general-purpose/",
+        link: ".",
+        items: [
+            { text: "Better-Exception", link: "better-exceptions" },
+        ],
+    },
     {
         text: "Image",
-        base: "/3rd-party/image/",
-        link: "index",
+        base: "/3rd-party/python/image/",
+        link: ".",
         items: [
             { text: "Pillow", link: "pillow" },
         ],
     },
     {
         text: "Services",
-        base: "/3rd-party/services/",
-        link: "index",
+        base: "/3rd-party/python/services/",
+        link: ".",
         items: [
 
         ],
     },
     {
         text: "Video",
-        base: "/3rd-party/video/",
-        link: "index",
+        base: "/3rd-party/python/video/",
+        link: ".",
         items: [
             { text: "MoviePy", link: "moviepy" },
         ],
     },
     {
         text: "Web Frameworks",
-        base: "/3rd-party/web-frameworks/",
-        link: "index",
+        base: "/3rd-party/python/web-frameworks/",
+        link: ".",
         items: [
 
         ],
     },
 ]
-
+const thirdPartySidebar: DefaultTheme.SidebarItem[] = [
+    {
+        text: "Python",
+        base: "/3rd-party/python/",
+        link: ".",
+        items: thirdPartySidebarPython
+    },
+]
 
 export default <DefaultTheme.Sidebar>{
     '/utility-libraries/': { base: "/utility-libraries/", items: utilityLibrariesSidebar },
