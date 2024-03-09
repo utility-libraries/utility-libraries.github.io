@@ -47,7 +47,7 @@ jobs:
         run: npm ci
       - name: Build with VitePress
         run: |
-          npm run docs:build
+          npm run build
           touch .vitepress/dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
