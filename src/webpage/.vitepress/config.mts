@@ -14,11 +14,11 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   head: [
-    ['link', {rel: 'icon', type: 'image/svg+xml', href: '/utility-libraries.png'}],
+    ['link', {rel: 'icon', type: 'image/svg+xml', href: '/utility-libraries.svg'}],
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/utility-libraries.png',
+    logo: '/utility-libraries.svg',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/utility-libraries/' }
     ],
