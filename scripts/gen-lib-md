@@ -44,11 +44,11 @@ if [[ "$LIBDOCS" =~ ^rtd: ]]; then
   LIBDOCS="https://$DOCSNAME.readthedocs.io/"
 fi
 
-if ! [[ "$LIBDOCS" =~ ^https?:// ]]; then
-  LIBDOCS="https://$LIBDOCS"
-fi
-
 if [ -n "$LIBDOCS" ]; then
+  if ! [[ "$LIBDOCS" =~ ^https?:// ]]; then
+    LIBDOCS="https://$LIBDOCS"
+  fi
+
   verify-url "$LIBDOCS"
 fi
 # -------------------- #
