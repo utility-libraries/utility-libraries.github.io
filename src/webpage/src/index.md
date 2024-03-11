@@ -9,6 +9,9 @@ hero:
   tagline: This website is in very early stages so be patient
   image:
     src: /utility-libraries.svg
+    # todo: dark/light is broken (ignores width/height). fix this with newer version of vitepress
+#    dark: /utility-libraries-light.svg
+#    light: /utility-libraries-dark.svg
     width: 512
     height: 512
   actions:
