@@ -88,7 +88,7 @@ Additionally, there are a couple of neat tools to make your general Python devel
 
 Your first application, a simple clock:
 
-```python3
+```python
 import time
 
 import pytermgui as ptg
@@ -113,7 +113,7 @@ Since strings are converted into the `Label` widget, and all widgets use markup 
 
 For something a bit more in-depth, see this contact form inspired by [asciimatics' example](https://github.com/peterbrittain/asciimatics#how-to-use-it):
 
-```python3
+```python
 import pytermgui as ptg
 
 CONFIG = """

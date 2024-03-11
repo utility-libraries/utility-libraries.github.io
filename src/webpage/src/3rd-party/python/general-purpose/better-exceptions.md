@@ -18,7 +18,7 @@ Add a short description here
 
 Pretty and more helpful exceptions in Python, automatically.
 
-![Example screenshot of exceptions](screenshot.png)
+![Example screenshot of exceptions](https://github.com/Qix-/better-exceptions/raw/master/screenshot.png)
 
 ## Usage
 
