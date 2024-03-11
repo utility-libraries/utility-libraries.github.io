@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+set -e
+
+function verify-url() {
+  if curl --head --fail "$1" 1> /dev/null 2> /dev/null; then
+    return 0
+  else
+    >&2 echo "The provided url does not exist: '$1'"
+    return 1
+  fi
+}
+
+LIBNAME=$(whiptail --inputbox "Library Name:
+(displaying name)" 20 60 3>&2 2>&1 1>&3)
+
+LIBPKG=$(whiptail --inputbox "Package Manager URL:
+shorthands:
+- npm:libname (npmjs.com)
+- pypi:libname (pypi.org)" 20 60 3>&2 2>&1 1>&3)
+
+PKGNAME=$(echo "$LIBPKG" | awk -F: '{print $2}')
+if [[ "$LIBPKG" =~ ^pypi: ]]; then
+  LIBPKG="https://pypi.org/project/${PKGNAME}/"
+elif [[ "$LIBPKG" =~ ^npm: ]]; then
+  LIBPKG="https://www.npmjs.com/package/${PKGNAME}/"
+fi
+
+verify-url "$LIBPKG"
+
+LIBDOCS=$(whiptail --inputbox "Library Documentation URL:
+(leave empty if none)
+shorthands:
+- rtd:libname (readthedocs.io)" 20 60 3>&2 2>&1 1>&3)
+
+DOCSNAME=$(echo "$LIBDOCS" | awk -F: '{print $2}')
+if [[ "$LIBDOCS" =~ ^rtd: ]]; then
+  LIBDOCS="https://$DOCSNAME.readthedocs.io/"
+fi
+
+verify-url "$LIBDOCS"
+
+LIBSOURCE=$(whiptail --inputbox "Library Source Code:
+(eg https://github.com/orgname/libname)
+(eg orgname/libname)" 20 60 3>&2 2>&1 1>&3)
+
+if [[ "$LIBSOURCE" =~ ^[^/]+/[^/]+$ ]]; then
+  LIBSOURCE="https://github.com/$LIBSOURCE"
+fi
+
+verify-url "$LIBSOURCE"
+
+# output/generation
+
+echo "# ${LIBNAME}"
+echo ""
+echo "<!--"
+echo "Add a short description here"
+echo "-->"
+
+PKGDOMAIN=$(echo "$LIBPKG" | awk -F[/:] '{print $4}')
+if [[ "$PKGDOMAIN" =~ npmjs.com$ ]]; then
+  # https://www.npmjs.com/package/$PKGNAME
+  PKGNAME=$(echo "$LIBPKG" | awk -F[/:] '{print $6}')
+  echo "![NPM-Version](https://img.shields.io/npm/v/$PKGNAME)"
+  echo
+elif [[ "$PKGDOMAIN" =~ pypi.org$ ]]; then
+  # https://pypi.org/project/$PKGNAME
+  PKGNAME=$(echo "$LIBPKG" | awk -F[/:] '{print $6}')
+  echo "![PyPI-Version](https://img.shields.io/pypi/v/$PKGNAME)"
+  echo
+fi
+
+echo "- [package: $LIBPKG]($LIBPKG)"
+if [ -n "$LIBDOCS" ]; then
+  echo "- [docs: $LIBDOCS]($LIBDOCS)"
+else
+  echo "- ~~docs~~ <small>(see source)</small>"
+fi
+echo "- [source: $LIBSOURCE]($LIBSOURCE)"
+echo ""
+
+SRCDOMAIN=$(echo "$LIBSOURCE" | awk -F[/:] '{print $4}')
+if [[ "$SRCDOMAIN" =~ github.com$ ]]; then
+  echo "---"
+  echo ""
+  echo "<small>Library README scraped $(date --iso-8601)</small>"
+  echo ""
+  curl -L "$LIBSOURCE"/raw/main/README.md
+  echo ""
+  echo "---"
+  echo ""
+fi
