@@ -56,6 +56,7 @@ echo ""
 echo "<!--"
 echo "Add a short description here"
 echo "-->"
+echo ""
 
 PKGDOMAIN=$(echo "$LIBPKG" | awk -F[/:] '{print $4}')
 if [[ "$PKGDOMAIN" =~ npmjs.com$ ]]; then
@@ -85,7 +86,11 @@ if [[ "$SRCDOMAIN" =~ github.com$ ]]; then
   echo ""
   echo "<small>Library README scraped $(date --iso-8601)</small>"
   echo ""
-  curl -L "$LIBSOURCE"/raw/main/README.md
+  if verify-url "$LIBSOURCE"/raw/main/README.md 2> /dev/null; then
+    curl --location --fail "$LIBSOURCE"/raw/main/README.md
+  else
+    curl --location --fail "$LIBSOURCE"/raw/master/README.md
+  fi
   echo ""
   echo "---"
   echo ""
