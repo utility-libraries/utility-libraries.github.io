@@ -64,6 +64,15 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
         ],
     },
     {
+        text: "Linting",
+        base: "/3rd-party/python/linting/",
+        link: ".",
+        items: [
+            { text: "Flake8", link: "flake8" },
+            { text: "Ruff", link: "ruff" },
+        ],
+    },
+    {
         text: "Services",
         base: "/3rd-party/python/services/",
         link: ".",
