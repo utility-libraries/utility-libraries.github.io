@@ -37,7 +37,9 @@ if [[ "$LIBDOCS" =~ ^rtd: ]]; then
   LIBDOCS="https://$DOCSNAME.readthedocs.io/"
 fi
 
-verify-url "$LIBDOCS"
+if [ -n "$LIBDOCS" ]; then
+  verify-url "$LIBDOCS"
+fi
 
 LIBSOURCE=$(whiptail --inputbox "Library Source Code:
 (eg https://github.com/orgname/libname)
