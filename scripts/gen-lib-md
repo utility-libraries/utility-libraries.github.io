@@ -2,7 +2,7 @@
 set -e
 
 function verify-url() {
-  if curl --head --fail "$1" 1> /dev/null 2> /dev/null; then
+  if curl --location --head --fail "$1" 1> /dev/null 2> /dev/null; then
     return 0
   else
     >&2 echo "The provided url does not exist: '$1'"
@@ -80,10 +80,10 @@ else
   echo "- ~~docs~~ <small>(see source)</small>"
 fi
 echo "- [source: $LIBSOURCE]($LIBSOURCE)"
-echo ""
 
 SRCDOMAIN=$(echo "$LIBSOURCE" | awk -F[/:] '{print $4}')
 if [[ "$SRCDOMAIN" =~ github.com$ ]]; then
+  echo ""
   echo "---"
   echo ""
   echo "<small>Library README scraped $(date --iso-8601)</small>"
@@ -95,5 +95,4 @@ if [[ "$SRCDOMAIN" =~ github.com$ ]]; then
   fi
   echo ""
   echo "---"
-  echo ""
 fi
