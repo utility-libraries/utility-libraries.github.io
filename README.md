@@ -13,7 +13,8 @@ npm run dev
 # Notes
 
 > [!NOTE]
-> To use script you can run `source scripts/shellrc.sh`
+> To use the scripts you can run `source scripts/shellrc.sh`.
+> Afterward, you can use them from anywhere.
 
 > [!IMPORTANT]
-> The Markdown for 3rd-party can be generated with `scripts/gen-lib-md`
+> The basic Markdown for (3rd-party) libraries can be generated with `scripts/gen-lib-md`
