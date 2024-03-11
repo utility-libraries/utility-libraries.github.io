@@ -16,6 +16,7 @@ LIBNAME=$(whiptail --inputbox "Library Name:
 (displaying name)" 20 60 3>&2 2>&1 1>&3)
 
 LIBPKG=$(whiptail --inputbox "Package Manager URL:
+(leave empty if none)
 shorthands:
 - npm:libname (npmjs.com)
 - pypi:libname (pypi.org)" 20 60 3>&2 2>&1 1>&3)
@@ -27,11 +28,13 @@ elif [[ "$LIBPKG" =~ ^npm: ]]; then
   LIBPKG="https://www.npmjs.com/package/${PKGNAME}/"
 fi
 
-if ! [[ "$LIBPKG" =~ ^https?:// ]]; then
-  LIBPKG="https://$LIBPKG"
-fi
+if [ -n "$LIBPKG" ]; then
+  if ! [[ "$LIBPKG" =~ ^https?:// ]]; then
+    LIBPKG="https://$LIBPKG"
+  fi
 
-verify-url "$LIBPKG"
+  verify-url "$LIBPKG"
+fi
 # -------------------- #
 
 LIBDOCS=$(whiptail --inputbox "Library Documentation URL:
@@ -90,7 +93,11 @@ elif [[ "$PKGDOMAIN" =~ pypi.org$ ]]; then
   echo
 fi
 
-echo "- [package: $LIBPKG]($LIBPKG)"
+if [ -n "$LIBPKG" ]; then
+  echo "- [package: $LIBPKG]($LIBPKG)"
+else
+  echo "- ~~package~~ <small>(see source)</small>"
+fi
 if [ -n "$LIBDOCS" ]; then
   echo "- [docs: $LIBDOCS]($LIBDOCS)"
 else
