@@ -3,6 +3,17 @@ import {DefaultTheme} from "vitepress";
 
 const utilityLibrariesSidebar: DefaultTheme.SidebarItem[] = [
     {
+        text: "Favorites",
+        base: "/utility-libraries/",
+        link: "favorites/",
+        items: [
+            { text: "configlib", link: "python/configlib" },
+            { text: "passwordlib", link: "python/passwordlib" },
+            { text: "color-generation", link: "python/color-generation" },
+            { text: "debuglib", link: "python/debuglib" },
+        ],
+    },
+    {
         text: "Shell",
         base: "/utility-libraries/shell/",
         link: ".",
@@ -15,7 +26,14 @@ const utilityLibrariesSidebar: DefaultTheme.SidebarItem[] = [
         base: "/utility-libraries/python/",
         link: ".",
         items: [
-            { text: "configlib-py", link: "configlib-py" },
+            { text: "color-generation", link: "color-generation" },
+            { text: "configlib", link: "configlib" },
+            { text: "debuglib", link: "debuglib" },
+            { text: "fixpath", link: "fixpath" },
+            { text: "messagebox", link: "messagebox" },
+            { text: "passwordlib", link: "passwordlib" },
+            { text: "shell-complete", link: "shell-complete" },
+            { text: "structurelib", link: "structurelib" },
         ],
     },
 ]
