@@ -107,8 +107,19 @@ if [[ "$SRCDOMAIN" =~ github.com$ ]]; then
   echo ""
   if verify-url "$LIBSOURCE"/raw/main/README.md 2> /dev/null; then
     curl --location --fail "$LIBSOURCE"/raw/main/README.md
-  else
+  elif verify-url "$LIBSOURCE"/raw/master/README.md 2> /dev/null; then
     curl --location --fail "$LIBSOURCE"/raw/master/README.md
+  elif command -v pandoc &> /dev/null && verify-url "$LIBSOURCE"/raw/main/README.rst 2> /dev/null; then
+    # pandoc results in '``` {.bash}' styled codeblocks. sed fixes that
+    # shellcheck disable=SC2016
+    curl --location --silent --fail "$LIBSOURCE"/raw/main/README.rst | pandoc --from rst --to markdown | sed -E 's/^``` \{\.([^}]+)\}$/```\1/g'
+  elif command -v pandoc &> /dev/null && verify-url "$LIBSOURCE"/raw/master/README.rst 2> /dev/null; then
+    # pandoc results in '``` {.bash}' styled codeblocks. sed fixes that
+    # shellcheck disable=SC2016
+    curl --location --silent --fail "$LIBSOURCE"/raw/master/README.rst | pandoc --from rst --to markdown | sed -E 's/^``` \{\.([^}]+)\}$/```\1/g'
+  else
+    >&2 echo "Failed to download the README"
+    exit 1
   fi
   echo ""
   echo "---"
