@@ -10,6 +10,8 @@ function verify-url() {
   fi
 }
 
+# start interactive ui
+
 LIBNAME=$(whiptail --inputbox "Library Name:
 (displaying name)" 20 60 3>&2 2>&1 1>&3)
 
@@ -25,7 +27,12 @@ elif [[ "$LIBPKG" =~ ^npm: ]]; then
   LIBPKG="https://www.npmjs.com/package/${PKGNAME}/"
 fi
 
+if ! [[ "$LIBPKG" =~ ^https?:// ]]; then
+  LIBPKG="https://$LIBPKG"
+fi
+
 verify-url "$LIBPKG"
+# -------------------- #
 
 LIBDOCS=$(whiptail --inputbox "Library Documentation URL:
 (leave empty if none)
@@ -37,9 +44,14 @@ if [[ "$LIBDOCS" =~ ^rtd: ]]; then
   LIBDOCS="https://$DOCSNAME.readthedocs.io/"
 fi
 
+if ! [[ "$LIBDOCS" =~ ^https?:// ]]; then
+  LIBDOCS="https://$LIBDOCS"
+fi
+
 if [ -n "$LIBDOCS" ]; then
   verify-url "$LIBDOCS"
 fi
+# -------------------- #
 
 LIBSOURCE=$(whiptail --inputbox "Library Source Code:
 (eg https://github.com/orgname/libname)
@@ -49,7 +61,12 @@ if [[ "$LIBSOURCE" =~ ^[^/]+/[^/]+$ ]]; then
   LIBSOURCE="https://github.com/$LIBSOURCE"
 fi
 
+if ! [[ "$LIBSOURCE" =~ ^https?:// ]]; then
+  LIBSOURCE="https://$LIBSOURCE"
+fi
+
 verify-url "$LIBSOURCE"
+# -------------------- #
 
 # output/generation
 
