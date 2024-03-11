@@ -76,7 +76,7 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
         base: "/3rd-party/python/terminal/",
         link: ".",
         items: [
-
+            { text: "Rich", link: "rich" },
         ],
     },
     {
