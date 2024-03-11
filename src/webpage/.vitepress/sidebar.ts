@@ -21,6 +21,32 @@ const utilityLibrariesSidebar: DefaultTheme.SidebarItem[] = [
 ]
 
 
+const thirdPartySidebarJavaScript: DefaultTheme.SidebarItem[] = [
+    {
+        text: "General Purpose",
+        base: "/3rd-party/javascript/general-purpose/",
+        link: ".",
+        items: [
+            { text: "sort-by", link: "sort-by" },
+        ],
+    },
+    {
+        text: "HTTP",
+        base: "/3rd-party/javascript/http/",
+        link: ".",
+        items: [
+            { text: "Axios", link: "axios" },
+        ],
+    },
+    {
+        text: "Validation",
+        base: "/3rd-party/javascript/validation/",
+        link: ".",
+        items: [
+            { text: "Zod", link: "zod" },
+        ],
+    },
+]
 const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
     {
         text: "API",
@@ -98,6 +124,14 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
         ],
     },
     {
+        text: "Validation",
+        base: "/3rd-party/python/validation/",
+        link: ".",
+        items: [
+
+        ],
+    },
+    {
         text: "Video",
         base: "/3rd-party/python/video/",
         link: ".",
@@ -117,10 +151,16 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
 ]
 const thirdPartySidebar: DefaultTheme.SidebarItem[] = [
     {
+        text: "JavaScript/TypeScript",
+        base: "/3rd-party/javascript/",
+        link: ".",
+        items: thirdPartySidebarJavaScript,
+    },
+    {
         text: "Python",
         base: "/3rd-party/python/",
         link: ".",
-        items: thirdPartySidebarPython
+        items: thirdPartySidebarPython,
     },
 ]
 
