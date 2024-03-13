@@ -75,6 +75,16 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
         ],
     },
     {
+        text: "File Parsing",
+        base: "/3rd-party/python/fileparsing/",
+        link: ".",
+        items: [
+            { text: "msgpack", link: "msgpack" },
+            { text: "orjson", link: "orjson" },
+            { text: "PyYAML", link: "pyyaml" },
+        ],
+    },
+    {
         text: "General Purpose",
         base: "/3rd-party/python/general-purpose/",
         link: ".",
@@ -116,12 +126,20 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
             { text: "Ruff", link: "ruff" },
         ],
     },
+    // {
+    //     text: "Services",
+    //     base: "/3rd-party/python/services/",
+    //     link: ".",
+    //     items: [
+    //
+    //     ],
+    // },
     {
-        text: "Services",
-        base: "/3rd-party/python/services/",
+        text: "System",
+        base: "/3rd-party/python/system/",
         link: ".",
         items: [
-
+            { text: "psutil", link: "psutil" },
         ],
     },
     {
