@@ -111,7 +111,7 @@ msgpack provides `dumps` and `loads` as an alias for compatibility with
 `pack` and `dump` packs to a file-like object.
 `unpack` and `load` unpacks from a file-like object.
 
-```pycon
+```python
 >>> import msgpack
 >>> msgpack.packb([1, 2, 3], use_bin_type=True)
 '\x93\x01\x02\x03'
@@ -121,7 +121,7 @@ msgpack provides `dumps` and `loads` as an alias for compatibility with
 
 `unpack` unpacks msgpack's array to Python's list, but can also unpack to tuple:
 
-```pycon
+```python
 >>> msgpack.unpackb(b'\x93\x01\x02\x03', use_list=False, raw=False)
 (1, 2, 3)
 ```
@@ -191,7 +191,7 @@ key-value pairs.
 
 It is also possible to pack/unpack custom data types using the **ext** type.
 
-```pycon
+```python
 >>> import msgpack
 >>> import array
 >>> def default(obj):
@@ -234,7 +234,7 @@ The type for representing both string and binary types was named **raw**.
 You can pack into and unpack from this old spec using `use_bin_type=False`
 and `raw=True` options.
 
-```pycon
+```python
 >>> import msgpack
 >>> msgpack.unpackb(msgpack.packb([b'spam', 'eggs'], use_bin_type=False), raw=True)
 [b'spam', b'eggs']
@@ -246,7 +246,7 @@ and `raw=True` options.
 
 To use the **ext** type, pass `msgpack.ExtType` object to packer.
 
-```pycon
+```python
 >>> import msgpack
 >>> packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))
 >>> msgpack.unpackb(packed)

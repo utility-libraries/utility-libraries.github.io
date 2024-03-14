@@ -75,6 +75,22 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
         ],
     },
     {
+        text: "Database",
+        base: "/3rd-party/python/database/",
+        link: ".",
+        items: [
+            { text: "TinyDB", link: "tinydb" },
+        ],
+    },
+    {
+        text: "Date & Time",
+        base: "/3rd-party/python/date/",
+        link: ".",
+        items: [
+            { text: "Arrow", link: "arrow" },
+        ],
+    },
+    {
         text: "File Parsing",
         base: "/3rd-party/python/fileparsing/",
         link: ".",
@@ -164,7 +180,7 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
         base: "/3rd-party/python/validation/",
         link: ".",
         items: [
-
+            { text: "Pydantic", link: "pydantic" },
         ],
     },
     {

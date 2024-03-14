@@ -1,12 +1,16 @@
 # Python 3rd Party Libraries
 
 - [API](api/index.md)
+- [Database](database/index.md)
+- [Date & Time](date/index.md)
+- [File Parsing](fileparsing/index.md)
 - [General Purpose](general-purpose/index.md)
 - [GUI](gui/index.md)
 - [HTTP](http/index.md)
 - [Image](image/index.md)
 - [Linting](linting/index.md)
 - [Services](services/index.md)
+- [System](system/index.md)
 - [Terminal](terminal/index.md)
 - [Terminal GUI](terminal-gui/index.md)
 - [Validation](validation/index.md)
