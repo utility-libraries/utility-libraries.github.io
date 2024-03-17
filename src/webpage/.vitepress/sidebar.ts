@@ -142,6 +142,14 @@ const thirdPartySidebarPython: DefaultTheme.SidebarItem[] = [
             { text: "Ruff", link: "ruff" },
         ],
     },
+    {
+        text: "Path",
+        base: "/3rd-party/python/path/",
+        link: ".",
+        items: [
+            { text: "Wildcard Match", link: "wcmatch" },
+        ],
+    },
     // {
     //     text: "Services",
     //     base: "/3rd-party/python/services/",
